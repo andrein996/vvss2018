@@ -2,6 +2,7 @@ package salariati.repository.mock;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import salariati.enumeration.DidacticFunction;
 
@@ -18,20 +19,7 @@ public class EmployeeRepository implements EmployeeRepositoryInterface {
 		
 		employeeValidator = new EmployeeValidator();
 		employeeList = new ArrayList<Employee>();
-		
-		Employee Ionel   = new Employee("Nicu", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, 2500);
-		Employee Mihai   = new Employee("Andrei", "Dumitrescu", "1234567890876", DidacticFunction.LECTURER, 2500);
-		Employee Ionela  = new Employee("Pop", "Ionescu", "1234567890876", DidacticFunction.LECTURER, 2500);
-		Employee Mihaela = new Employee("Nicusor", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, 2500);
-		Employee Vasile  = new Employee("Tester", "Georgescu", "1234567890876", DidacticFunction.TEACHER,  2500);
-		Employee Marin   = new Employee("Vasile", "Puscas", "1234567890876", DidacticFunction.TEACHER,  2500);
-		
-		employeeList.add( Ionel );
-		employeeList.add( Mihai );
-		employeeList.add( Ionela );
-		employeeList.add( Mihaela );
-		employeeList.add( Vasile );
-		employeeList.add( Marin );
+
 	}
 	
 	@Override
@@ -45,7 +33,10 @@ public class EmployeeRepository implements EmployeeRepositoryInterface {
 	
 	@Override
 	public void deleteEmployee(Employee employee) {
-		// TODO Auto-generated method stub
+		employeeList = employeeList
+				.stream()
+				.filter(employeeInList -> !employeeInList.getCnp().equals(employee.getCnp()))
+				.collect(Collectors.toList());
 	}
 
 	@Override

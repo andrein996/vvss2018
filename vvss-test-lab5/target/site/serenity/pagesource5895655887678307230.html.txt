@@ -1,0 +1,13 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta charset="UTF-8" />
+    <title>Add</title>
+</head>
+<body>
+    <form action="AddServlet" method="post">
+        <input type="text" placeholder="nr_matricol" name="nr_matricol" />
+        <input type="text" placeholder="materie" name="materie" />
+        <input type="text" placeholder="nota" name="nota" />
+        <input type="submit" name="addBtn" />
+    </form>
+
+</body></html>

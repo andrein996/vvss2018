@@ -27,8 +27,8 @@ public class AddEmployeeTest {
 	
 	@Test
 	public void testRepositoryMock() {
-		assertFalse(controller.getEmployeesList().isEmpty());
-		assertEquals(6, controller.getEmployeesList().size());
+		assertTrue(controller.getEmployeesList().isEmpty());
+		assertEquals(0, controller.getEmployeesList().size());
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class AddEmployeeTest {
 		Employee newEmployee = new Employee("ValidFirstName", "ValidLastName", "1910509055057", DidacticFunction.ASISTENT, 3000);
 		assertTrue(employeeValidator.isValid(newEmployee));
 		controller.addEmployee(newEmployee);
-		assertEquals(7, controller.getEmployeesList().size());
+		assertEquals(1, controller.getEmployeesList().size());
 		assertTrue(newEmployee.equals(controller.getEmployeesList().get(controller.getEmployeesList().size() - 1)));
 	}
 

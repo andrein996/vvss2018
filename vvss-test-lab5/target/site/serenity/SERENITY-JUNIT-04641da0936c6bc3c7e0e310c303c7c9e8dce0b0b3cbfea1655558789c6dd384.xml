@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="lab5.features.search.AddEmployee" skipped="0" tests="2" time="15.35" timestamp="2018-05-23T14:35:07.032+03:00[Asia/Beirut]"><testcase classname="lab5.features.search.AddEmployee" name="Adding data should display the correct message"/></testsuite>

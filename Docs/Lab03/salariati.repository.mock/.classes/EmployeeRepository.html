@@ -1,0 +1,169 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EmployeeRepository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">salariati.repository.mock</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EmployeeRepository (salariati.repository.mock)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeRepository</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (30/ 35)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package salariati.repository.mock;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.List;
+<i>5</i>&nbsp;import java.util.stream.Collectors;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import salariati.enumeration.DidacticFunction;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import salariati.model.Employee;
+<i>10</i>&nbsp;import salariati.repository.interfaces.EmployeeRepositoryInterface;
+<i>11</i>&nbsp;import salariati.validator.EmployeeValidator;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;public class EmployeeRepository implements EmployeeRepositoryInterface {
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    private List&lt;Employee&gt; employeeList;
+<i>16</i>&nbsp;    private EmployeeValidator employeeValidator;
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;    public EmployeeRepository() {</b>
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;        employeeValidator = new EmployeeValidator();</b>
+<b class="fc"><i>21</i>&nbsp;        employeeList = new ArrayList&lt;Employee&gt;();</b>
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;        Employee Ionel = new Employee(&quot;Nicu&quot;, &quot;Pacuraru&quot;, &quot;1234567890876&quot;, DidacticFunction.ASISTENT, 2500);</b>
+<b class="fc"><i>24</i>&nbsp;        Employee Mihai = new Employee(&quot;Andrei&quot;, &quot;Dumitrescu&quot;, &quot;1234567890876&quot;, DidacticFunction.LECTURER, 2500);</b>
+<b class="fc"><i>25</i>&nbsp;        Employee Ionela = new Employee(&quot;Pop&quot;, &quot;Ionescu&quot;, &quot;1234567890876&quot;, DidacticFunction.LECTURER, 2500);</b>
+<b class="fc"><i>26</i>&nbsp;        Employee Mihaela = new Employee(&quot;Nicusor&quot;, &quot;Pacuraru&quot;, &quot;1234567890876&quot;, DidacticFunction.ASISTENT, 2500);</b>
+<b class="fc"><i>27</i>&nbsp;        Employee Vasile = new Employee(&quot;Tester&quot;, &quot;Georgescu&quot;, &quot;1234567890876&quot;, DidacticFunction.TEACHER, 2500);</b>
+<b class="fc"><i>28</i>&nbsp;        Employee Marin = new Employee(&quot;Vasile&quot;, &quot;Puscas&quot;, &quot;1234567890876&quot;, DidacticFunction.TEACHER, 2500);</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;        employeeList.add(Ionel);</b>
+<b class="fc"><i>31</i>&nbsp;        employeeList.add(Mihai);</b>
+<b class="fc"><i>32</i>&nbsp;        employeeList.add(Ionela);</b>
+<b class="fc"><i>33</i>&nbsp;        employeeList.add(Mihaela);</b>
+<b class="fc"><i>34</i>&nbsp;        employeeList.add(Vasile);</b>
+<b class="fc"><i>35</i>&nbsp;        employeeList.add(Marin);</b>
+<b class="fc"><i>36</i>&nbsp;    }</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Override
+<i>39</i>&nbsp;    public boolean addEmployee(Employee employee) {
+<b class="fc"><i>40</i>&nbsp;        if (employeeValidator.isValid(employee)) {</b>
+<b class="fc"><i>41</i>&nbsp;            employeeList.add(employee);</b>
+<b class="fc"><i>42</i>&nbsp;            return true;</b>
+<i>43</i>&nbsp;        }
+<b class="fc"><i>44</i>&nbsp;        return false;</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    @Override
+<i>48</i>&nbsp;    public void deleteEmployee(Employee employee) {
+<i>49</i>&nbsp;        // TODO Auto-generated method stub
+<b class="nc"><i>50</i>&nbsp;    }</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    @Override
+<i>53</i>&nbsp;    public void modifyEmployee(Employee oldEmployee, Employee newEmployee) {
+<b class="fc"><i>54</i>&nbsp;        if (!employeeValidator.isValid(newEmployee)) {</b>
+<b class="nc"><i>55</i>&nbsp;            System.err.println(&quot;Not valid&quot;);</b>
+<b class="nc"><i>56</i>&nbsp;            return;</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;
+<b class="fc"><i>59</i>&nbsp;        List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="fc"><i>60</i>&nbsp;        List&lt;Employee&gt; employeesWithoutNewOne = new ArrayList&lt;&gt;();</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;        for (Employee e : employees) {</b>
+<b class="fc"><i>63</i>&nbsp;            if (!e.getCnp().equals(newEmployee.getCnp())) {</b>
+<b class="nc"><i>64</i>&nbsp;                employeesWithoutNewOne.add(e);</b>
+<i>65</i>&nbsp;            }
+<b class="fc"><i>66</i>&nbsp;        }</b>
+<i>67</i>&nbsp;//        List&lt;Employee&gt; employeesWithoutNewOne = employees.stream()
+<i>68</i>&nbsp;//                .filter(employee -&gt; !employee.getCnp().equals(newEmployee.getCnp()))
+<i>69</i>&nbsp;//                .collect(Collectors.toList());
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;        employeesWithoutNewOne.add(newEmployee);</b>
+<b class="fc"><i>72</i>&nbsp;        this.employeeList = employeesWithoutNewOne;</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    @Override
+<i>76</i>&nbsp;    public List&lt;Employee&gt; getEmployeeList() {
+<b class="fc"><i>77</i>&nbsp;        return employeeList;</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    @Override
+<i>81</i>&nbsp;    public List&lt;Employee&gt; getEmployeeByCriteria(String criteria) {
+<i>82</i>&nbsp;        // TODO Auto-generated method stub
+<b class="nc"><i>83</i>&nbsp;        return null;</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-09 18:40</div>
+</div>
+</body>
+</html>

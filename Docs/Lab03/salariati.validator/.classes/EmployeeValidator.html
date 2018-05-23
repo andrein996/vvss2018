@@ -1,0 +1,114 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EmployeeValidator</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">salariati.validator</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EmployeeValidator (salariati.validator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeValidator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package salariati.validator;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import salariati.enumeration.DidacticFunction;
+<i>4</i>&nbsp;import salariati.model.Employee;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class EmployeeValidator {
+<i>7</i>&nbsp;	
+<b class="fc"><i>8</i>&nbsp;	public EmployeeValidator(){}</b>
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;	public boolean isValid(Employee employee) {
+<b class="fc"><i>11</i>&nbsp;		if (employee.getFirstName() == null ||</b>
+<b class="fc"><i>12</i>&nbsp;				employee.getLastName() == null ||</b>
+<b class="fc"><i>13</i>&nbsp;				employee.getCnp() == null ||</b>
+<b class="fc"><i>14</i>&nbsp;				employee.getFunction() == null ||</b>
+<b class="fc"><i>15</i>&nbsp;				employee.getSalary() == null) {</b>
+<b class="fc"><i>16</i>&nbsp;			return false;</b>
+<i>17</i>&nbsp;		}
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;		boolean isFirstNameValid = employee.getFirstName().matches(&quot;[a-zA-Z]+&quot;) &amp;&amp; (employee.getFirstName().length() &gt;= 2);</b>
+<b class="fc"><i>20</i>&nbsp;		boolean isLastNameValid  = employee.getLastName().matches(&quot;[a-zA-Z]+&quot;) &amp;&amp; (employee.getLastName().length() &gt;= 2);</b>
+<b class="fc"><i>21</i>&nbsp;		boolean isCNPValid       = employee.getCnp().matches(&quot;[0-9]+&quot;) &amp;&amp; (employee.getCnp().length() == 13);</b>
+<b class="fc"><i>22</i>&nbsp;		boolean isFunctionValid  = employee.getFunction().equals(DidacticFunction.ASISTENT) ||</b>
+<b class="fc"><i>23</i>&nbsp;								   employee.getFunction().equals(DidacticFunction.LECTURER) ||</b>
+<b class="fc"><i>24</i>&nbsp;								   employee.getFunction().equals(DidacticFunction.TEACHER);</b>
+<b class="fc"><i>25</i>&nbsp;		boolean isSalaryValid    = employee.getSalary() &gt; 0;</b>
+<i>26</i>&nbsp;		
+<b class="fc"><i>27</i>&nbsp;		return isFirstNameValid &amp;&amp; isLastNameValid &amp;&amp; isCNPValid &amp;&amp; isFunctionValid &amp;&amp; isSalaryValid;</b>
+<i>28</i>&nbsp;	}
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;	
+<i>31</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-09 18:40</div>
+</div>
+</body>
+</html>
